@@ -1,0 +1,12 @@
+syntax = "proto3";
+package pb.users;
+option go_package = "building-pb/pb/users";
+// @project building-pb
+// @author arthur
+// @created 30.10.2020
+
+message User {
+    string ID = 1;
+    string Name = 2;
+    int64 CreatedAt = 3;
+}
