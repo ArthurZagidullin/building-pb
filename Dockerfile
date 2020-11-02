@@ -1,9 +1,12 @@
 FROM golang:latest
 RUN mkdir /bins
+RUN apt-get update && apt-get --assume-yes install zip jq autoconf libtool lib32z1-dev
+RUN git clone --recursive https://github.com/grpc/grpc
+RUN cd grpc && make grpc_python_plugin
+RUN mv /go/grpc/bins/opt/grpc_python_plugin bins
 RUN go get -u github.com/golang/protobuf/protoc-gen-go
 RUN go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 RUN go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-openapiv2
-RUN apt-get update && apt-get --assume-yes install zip jq
 RUN wget https://github.com/protocolbuffers/protobuf/releases/download/v3.13.0/protoc-3.13.0-linux-x86_64.zip
 RUN unzip protoc-*.zip
 RUN curl -o /bins/swagger $(curl -s https://api.github.com/repos/go-swagger/go-swagger/releases/latest | \
