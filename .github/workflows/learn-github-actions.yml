@@ -2,6 +2,7 @@ name: "Building protobuf"
 on: push
 jobs:
   build:
+    runs-on: ubuntu-latest
     container: grpc/go
     steps:
       - uses: actions/checkout@v2
