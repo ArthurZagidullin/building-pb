@@ -4,9 +4,24 @@ option go_package = "pb/users";
 // @project building-pb
 // @author arthur
 // @created 30.10.2020
+import "google/api/annotations.proto";
 
 message User {
     string ID = 1;
     string Name = 2;
     int64 CreatedAt = 3;
 }
+
+service UserService {
+    rpc Create(CreateRequest) returns(CreateResponse) {
+        option (google.api.http) = {
+            post: "/v1/user/create"
+            body: "*"
+        };
+    };
+}
+
+message CreateRequest {
+    User User = 1;
+}
+message CreateResponse{}
