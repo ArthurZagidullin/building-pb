@@ -1,6 +1,6 @@
 syntax = "proto3";
 package pb.users;
-option go_package = "building-pb/pb/users";
+option go_package = "building-pb/users";
 // @project building-pb
 // @author arthur
 // @created 30.10.2020

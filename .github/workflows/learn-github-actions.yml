@@ -1,0 +1,16 @@
+name: "Building protobuf"
+description: "Build gRPC proto files to golang pb package"
+jobs:
+  build:
+    container: grpc/go
+    uses: actions/checkout@v2
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Chmod"
+        run: chmod +x ./build-pb.sh
+      - name: "Build"
+        run: ./build-pb.sh
+      - uses: actions/upload-artifact@v2
+          with:
+            name: golang.pb
+            path: /artifacts
