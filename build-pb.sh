@@ -19,4 +19,5 @@ function walk() {
     fi
   done
 }
+
 walk protobuf

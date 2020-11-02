@@ -1,6 +1,7 @@
 FROM grpc/go
-COPY . /app/
-WORKDIR /app
-VOLUME ./artifacts
-RUN ["chmod", "+x", "/app/build-pb.sh"]
-ENTRYPOINT ["/app/build-pb.sh"]
+RUN go install \
+        github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway \
+        github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2 \
+        google.golang.org/protobuf/cmd/protoc-gen-go \
+        google.golang.org/grpc/cmd/protoc-gen-go-grpc \
+        github.com/go-swagger/go-swagger
