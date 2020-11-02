@@ -6,8 +6,8 @@ jobs:
     container: grpc/go
     steps:
       - uses: actions/checkout@v2
-      - name: "Chmod"
-        run: chmod +x ./build-pb.sh
+      - run: chmod +x ./build-pb.sh
+      - run: mkdir /artifacts
       - name: "Build"
         run: ./build-pb.sh
       - uses: actions/upload-artifact@v2
