@@ -11,6 +11,6 @@ jobs:
       - name: "Build"
         run: ./build-pb.sh
       - uses: actions/upload-artifact@v2
-          with:
-            name: golang.pb
-            path: /artifacts
+        with:
+          name: golang.pb
+          path: /artifacts
