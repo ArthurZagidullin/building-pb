@@ -3,7 +3,7 @@ RUN mkdir /bins
 RUN apt-get update && apt-get --assume-yes install zip jq autoconf libtool lib32z1-dev
 RUN git clone --recursive https://github.com/grpc/grpc
 RUN cd grpc && make grpc_python_plugin
-RUN mv /go/grpc/bins/opt/grpc_python_plugin bins
+RUN mv /go/grpc/bins/opt/grpc_python_plugin /bins
 RUN go get -u github.com/golang/protobuf/protoc-gen-go
 RUN go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 RUN go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-openapiv2
