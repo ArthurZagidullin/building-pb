@@ -1,10 +1,8 @@
 name: "Building protobuf"
-description: "Build gRPC proto files to golang pb package"
 on: push
 jobs:
   build:
     container: grpc/go
-    uses: actions/checkout@v2
     steps:
       - uses: actions/checkout@v2
       - name: "Chmod"
