@@ -6,13 +6,13 @@ jobs:
     container: arthurzagidullin/pb-build:latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo $GITHUB_WORKSPACE
+#      - run: echo $GITHUB_WORKSPACE
       - name: Build
         env:
-          APP_DIR: ${{GITHUB_WORKSPACE}}
+          APP_DIR: $GITHUB_WORKSPACE
         run: |
-          chmod +x ${{env.APP_DIR}}/build-pb.sh
-          ${{env.APP_DIR}}/build-pb.sh
+          chmod +x $GITHUB_WORKSPACE/build-pb.sh
+          $GITHUB_WORKSPACE/build-pb.sh
       - uses: actions/upload-artifact@v2
         with:
           name: compiled.pb
