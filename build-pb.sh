@@ -11,7 +11,7 @@ function walk() {
     else
       if [ "${f: -6}" == ".proto" ]; then
         echo "Is a Proto File go compile $f"
-        protoc -I/include -I/app/protobuf -I/grpc-gateway/third_party/googleapis -I/grpc-gateway \
+        protoc -I/include -I${APP_DIR}protobuf -I/grpc-gateway/third_party/googleapis -I/grpc-gateway \
           --go_out=plugins=grpc:/artifacts/golang \
           --grpc-gateway_out /artifacts/golang --grpc-gateway_opt logtostderr=true \
           --python_out=/artifacts/python --grpc_python_out=/artifacts/python \
