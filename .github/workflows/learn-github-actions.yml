@@ -6,7 +6,8 @@ jobs:
     container: arthurzagidullin/pb-build:latest
     steps:
       - uses: actions/checkout@v2
-        path: /app
+        with:
+          path: /app
       - run: |
           chmod +x /app/build-pb.sh
           /app/build-pb.sh
