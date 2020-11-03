@@ -6,9 +6,10 @@ jobs:
     container: arthurzagidullin/pb-build:latest
     steps:
       - uses: actions/checkout@v2
-      - run: chmod +x ./build-pb.sh
-      - run: mkdir /artifacts
-      - run: ./build-pb.sh
+        path: /app
+      - run: |
+          chmod +x /app/build-pb.sh
+          /app/build-pb.sh
       - uses: actions/upload-artifact@v2
         with:
           name: compiled.pb
