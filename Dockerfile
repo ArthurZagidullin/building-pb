@@ -19,7 +19,6 @@ RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/s
 RUN wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0/glibc-2.32-r0.apk
 RUN apk add glibc-2.32-r0.apk bash libstdc++
 ENV LD_LIBRARY_PATH="/lib:/usr/lib/"
-COPY . /app
 COPY --from=0 /bins /bin
 COPY --from=0 /go/include /include
 COPY --from=0 /go/src/github.com/grpc-ecosystem /
