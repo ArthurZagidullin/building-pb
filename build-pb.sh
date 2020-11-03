@@ -34,7 +34,8 @@ function add_init() {
     fi
   done
 }
-
+echo "INTO DIR ${APP_DIR}"
+ls -la "${APP_DIR}"
 mkdir -p /artifacts/{swagger,python,golang}
 walk "${APP_DIR}"/protobuf
 add_init /artifacts/python

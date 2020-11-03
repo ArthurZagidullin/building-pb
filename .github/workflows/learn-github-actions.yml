@@ -6,8 +6,6 @@ jobs:
     container: arthurzagidullin/pb-build:latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          path: /app
       - name: Build
         env:
           APP_DIR: $GITHUB_WORKSPACE
