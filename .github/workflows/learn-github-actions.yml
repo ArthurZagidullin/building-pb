@@ -9,7 +9,7 @@ jobs:
       - run: echo $GITHUB_WORKSPACE
       - name: Build
         env:
-          APP_DIR: $GITHUB_WORKSPACE
+          APP_DIR: ${{env.GITHUB_WORKSPACE}}
         run: |
           chmod +x ${{env.APP_DIR}}/build-pb.sh
           ${{env.APP_DIR}}/build-pb.sh
