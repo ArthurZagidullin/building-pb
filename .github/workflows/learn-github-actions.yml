@@ -9,10 +9,10 @@ jobs:
 #      - run: echo $GITHUB_WORKSPACE
       - name: Build
         env:
-          APP_DIR: $GITHUB_WORKSPACE
+          APP_DIR: ${GITHUB_WORKSPACE}
         run: |
-          chmod +x $GITHUB_WORKSPACE/build-pb.sh
-          $GITHUB_WORKSPACE/build-pb.sh
+          chmod +x "${APP_DIR}"/build-pb.sh
+          "${APP_DIR}"/build-pb.sh
       - uses: actions/upload-artifact@v2
         with:
           name: compiled.pb
