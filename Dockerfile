@@ -12,6 +12,8 @@ RUN unzip protoc-*.zip
 RUN curl -o /bins/swagger $(curl -s https://api.github.com/repos/go-swagger/go-swagger/releases/latest | \
   jq -r '.assets[] | select(.name | contains("'"$(uname | tr '[:upper:]' '[:lower:]')"'_amd64")) | .browser_download_url')
 RUN chmod +x /bins/swagger
+RUN go get -u github.com/danielvladco/go-proto-gql/protoc-gen-gql
+RUN go get -u github.com/danielvladco/go-proto-gql/protoc-gen-gogql
 RUN mv /go/bin/* /bins
 
 FROM alpine:latest
